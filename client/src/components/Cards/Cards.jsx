@@ -6,7 +6,6 @@ import { SearchBar } from "../Handlers";
 
 const Cards = ({ drivers }) => {
   /* -------------------------------------------------------------------------- */
-const [driversFiltrados, setDriversFiltrados] = useState(drivers);
 
   const driversPerPage = 9;
 
@@ -31,16 +30,8 @@ const [driversFiltrados, setDriversFiltrados] = useState(drivers);
   };
   const driversToDisplay = Array.from(drivers).slice(startIndex, endIndex);
 
-  const handlerDriverFiltrados = (driversFiltrados) => {
-    setDriversFiltrados(driversFiltrados);
-  }
-
-  const driverSearch = SearchBar(drivers);
-
   return (
     <>
-
-      
       <div className={Style.cardList}>
         {driversToDisplay.map((drivers) => (
           <Card

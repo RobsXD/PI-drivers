@@ -24,6 +24,7 @@ router.get("/drivers", async (req, res) => {
         image: d.image.url,
         nationality: d.nationality,
         teams: d.teams,
+        birthdate: d.dob,
       };
     });
 

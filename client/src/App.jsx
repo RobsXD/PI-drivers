@@ -2,7 +2,7 @@ import "./App.css";
 import { Route, Routes } from "react-router-dom";
 import { Detail, Home, Landing, Form } from "./views/index";
 import { useEffect } from "react";
-import { getDriver, getTeams } from "./Redux/Actions";
+import { getDriver, getTeams, getAsc, getDesc, getBirthDate } from "./Redux/Actions";
 import { useDispatch, useSelector } from "react-redux";
 
 function App() {
@@ -11,6 +11,9 @@ function App() {
   useEffect(() => {
     dispatch(getDriver());
     dispatch(getTeams());
+    dispatch(getAsc());
+    dispatch(getDesc())
+    dispatch(getBirthDate());
   }, []);
   return (
     <>

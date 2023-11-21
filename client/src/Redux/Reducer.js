@@ -4,11 +4,15 @@ import {
   GET_BY_ID,
   GET_ASC,
   GET_DESC,
+  GET_BIRTHDATE,
 } from "./Actions";
 
 let initialState = {
   getDriver: [],
   getById: [],
+  getAsc: [],
+  getDesc: [],
+  getBirthDate: [],
 };
 
 function rootReducer(state = initialState, action) {
@@ -30,6 +34,25 @@ function rootReducer(state = initialState, action) {
         getTeams: action.payload,
       };
 
+      case GET_ASC:
+        return {
+          ...state,
+          getAsc: action.payload,
+        }
+
+      case GET_DESC: {
+        return {
+          ...state,
+          getDesc: action.payload,
+        };
+      }
+
+      case GET_BIRTHDATE: {
+        return {
+          ...state,
+          getBirthDate: action.payload,
+        };
+      }
     default:
       return state;
   }
