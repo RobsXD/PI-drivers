@@ -1,0 +1,61 @@
+.card {
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 16px;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    background-color: rgb(255, 255, 0);
+    color: black;
+  }
+  
+  .card .card-border-top {
+   width: 60%;
+   height: 3%;
+   background: #6b64f3;
+   margin: auto;
+   border-radius: 0px 0px 15px 15px;
+  }
+  
+  .card span {
+   font-weight: 600;
+   color: black;
+   text-align: center;
+   display: block;
+   padding-top: 10px;
+   font-size: 16px;
+  }
+
+  .card .job {
+   font-weight: 400;
+   color: black;
+   display: block;
+   text-align: center;
+   padding-top: 3px;
+   font-size: 12px;
+  }
+  
+  .img {
+    width: 120px;
+    height: 140px;
+   background: #6b64f3;
+   border-radius: 15px;
+   margin: auto;
+   margin-top: 25px;
+   object-fit: cover;
+  }
+  
+  .card button {
+   padding: 8px 25px;
+   display: block;
+   margin: auto;
+   border-radius: 8px;
+   border: none;
+   margin-top: 30px;
+   background: #6b64f3;
+   color: white;
+   font-weight: 600;
+  }
+  
+  .card button:hover {
+   background: #534bf3;
+  }
