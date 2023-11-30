@@ -1,39 +1,31 @@
 import React from "react";
 import { Card } from "../index";
 import Style from "./Cards.module.css";
-import { useState } from "react";
-import { SearchBar } from "../Handlers";
+import { usePagination } from "../../handlers/Index";
 
 const Cards = ({ drivers }) => {
   /* -------------------------------------------------------------------------- */
 
-  const driversPerPage = 9;
-
-  const [paginaActual, setPaginaActual] = useState(1);
-  const totalPages = Math.ceil(drivers.length / driversPerPage);
-
-  const startIndex = (paginaActual - 1) * driversPerPage;
-  const endIndex = startIndex + driversPerPage;
-
-  const goToPage = (pageNumber) => {
-    if (pageNumber >= 1 && pageNumber <= totalPages) {
-      setPaginaActual(pageNumber);
-    }
-  };
-
-  const prevPage = () => {
-    goToPage(paginaActual - 1);
-  };
-
-  const nextPage = () => {
-    goToPage(paginaActual + 1);
-  };
-  const driversToDisplay = Array.from(drivers).slice(startIndex, endIndex);
+  const pagination = usePagination(drivers);
 
   return (
     <>
+      <hr />
+      <button
+        onClick={pagination?.prevPage}
+        disabled={pagination?.paginaActual === 1}
+      >
+        Página Anterior
+      </button>
+      Página {pagination?.paginaActual} de {pagination?.totalPages}
+      <button
+        onClick={pagination?.nextPage}
+        disabled={pagination?.paginaActual === pagination?.totalPages}
+      >
+        Página Siguiente
+      </button>
       <div className={Style.cardList}>
-        {driversToDisplay.map((drivers) => (
+        {pagination?.driversToDisplay.map((drivers) => (
           <Card
             key={drivers.id}
             id={drivers.id}
@@ -49,11 +41,17 @@ const Cards = ({ drivers }) => {
           />
         ))}
       </div>
-      <button onClick={prevPage} disabled={paginaActual === 1}>
+      <button
+        onClick={pagination?.prevPage}
+        disabled={pagination?.paginaActual === 1}
+      >
         Página Anterior
       </button>
-      Página {paginaActual} de {totalPages}
-      <button onClick={nextPage} disabled={paginaActual === totalPages}>
+      Página {pagination?.paginaActual} de {pagination?.totalPages}
+      <button
+        onClick={pagination?.nextPage}
+        disabled={pagination?.paginaActual === pagination?.totalPages}
+      >
         Página Siguiente
       </button>
     </>

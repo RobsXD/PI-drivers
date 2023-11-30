@@ -5,10 +5,7 @@ const BtnForm = () => {
   return (
     <div>
       <Link to="/create">
-        {" "}
-        <button>
-          Crear nuevo corredor
-        </button>
+        <button>Crear nuevo corredor</button>
       </Link>
     </div>
   );

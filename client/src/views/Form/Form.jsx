@@ -28,6 +28,7 @@ const Form = () => {
   }, []);
 
   const Teams = useSelector((state) => state.getTeams);
+  const Post = useSelector((state) => state.postDrivers)
 
   const [error, setError] = useState({
     name: "",
@@ -38,8 +39,6 @@ const Form = () => {
     birthdate: "",
     teams: "",
   });
-
-  console.log(error);
 
   const [driver, setDriver] = useState({
     name: "",
@@ -95,7 +94,9 @@ const Form = () => {
 
     try {
       const response = await axios.post(`http://localhost:3001/create`, driver);
-      if (response.status === 201) succes();
+      if (response.status === 201) {
+        succes();
+      }
     } catch (error) {
       console.log(error);
     }

@@ -52,6 +52,7 @@ router.get("/drivers", async (req, res) => {
 router.get("/drivers/:id", async (req, res) => {
   try {
     const { id } = req.params;
+
     const response = await axios(`http://localhost:5000/drivers/`);
     const data = response.data;
 
@@ -82,6 +83,7 @@ router.get("/drivers/:id", async (req, res) => {
         .status(404)
         .json({ error: "Lo sentimos, no tenemos a ese corredor :(" });
     }
+    
     res.status(200).json(drivers);
   } catch (error) {
     res.status(400).json({ error: error.message });
