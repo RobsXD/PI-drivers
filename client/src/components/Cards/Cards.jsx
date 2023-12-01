@@ -10,12 +10,12 @@ const Cards = ({ drivers }) => {
 
   return (
     <>
-      <hr />
+    
       <button
         onClick={pagination?.prevPage}
         disabled={pagination?.paginaActual === 1}
       >
-        Página Anterior
+        Pagina Anterior
       </button>
       Página {pagination?.paginaActual} de {pagination?.totalPages}
       <button
@@ -24,7 +24,7 @@ const Cards = ({ drivers }) => {
       >
         Página Siguiente
       </button>
-      <div className={Style.cardList}>
+      <div>
         {pagination?.driversToDisplay.map((drivers) => (
           <Card
             key={drivers.id}

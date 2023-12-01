@@ -56,7 +56,6 @@ const Home = () => {
     drivers = getBDD;
   }
   if (multiDriver.teams.length > 0) {
-    
     drivers = allDrivers.filter((driver) => {
       if (driver.teams) {
         if (Array.isArray(driver.teams)) {
@@ -133,6 +132,7 @@ const Home = () => {
         <button name="birthdate" onClick={handlerClick}>
           Filtrar por fecha de nacimiento
         </button>
+
         <button name="api" onClick={handlerClick}>
           Filtrar por API
         </button>
@@ -152,7 +152,9 @@ const Home = () => {
           placeholder="Filtrar por equipo"
         />
       </nav>
-      <Cards drivers={drivers} />
+      <main>
+        <Cards drivers={drivers} />
+      </main>
     </div>
   );
 };
