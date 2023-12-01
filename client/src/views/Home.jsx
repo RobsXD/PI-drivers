@@ -1,10 +1,9 @@
-import React, { useEffect, useState } from "react";
-import { useSelector, useDispatch } from "react-redux";
+import React, { useState } from "react";
+import { useSelector } from "react-redux";
 import { Cards, SearchBar } from "../components/index";
 import { BtnForm } from "../Buttons/index";
 import Select from "react-select";
 import Styles from "./Form/Form.module.css";
-import { getDriver } from "../Redux/Actions";
 import { Link } from "react-router-dom";
 
 const Home = () => {
@@ -57,7 +56,7 @@ const Home = () => {
     drivers = getBDD;
   }
   if (multiDriver.teams.length > 0) {
-    console.log(multiDriver.teams);
+    
     drivers = allDrivers.filter((driver) => {
       if (driver.teams) {
         if (Array.isArray(driver.teams)) {
